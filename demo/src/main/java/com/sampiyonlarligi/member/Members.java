@@ -1,25 +1,27 @@
 package com.sampiyonlarligi.member;
 
+import java.util.UUID;
+
+import org.springframework.data.annotation.Id;
+
 public class Members {
 		
-		private String id;
+		@Id
+		private UUID id;
 		private String name;
 		private String surname;
 		
+		public Members(UUID id, String name, String Surname) {
+
+		}
 		public Members() {
-			
-			
+
 		}
-		public Members(String id, String name, String surname) {
-			
-			this.id = id;
-			this.name = name;
-			this.surname = surname;
-		}
-		public String getId() {
+		
+		public UUID getId() {
 			return id;
 		}
-		public void setId(String id) {
+		public void setId(UUID id) {
 			this.id = id;
 		}
 		public String getName() {

@@ -1,29 +1,31 @@
 package com.sampiyonlarligi.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.stereotype.Service;
 
 import com.sampiyonlarligi.member.Members;
 
-
 @Service
 public class Services {
 	
 	public List<Members> 
-	memberList = new ArrayList<>(Arrays.asList(
-			new Members("1","Bergen","Sarılmışer"),
-					new Members("2","Antony","Magamela")
-					));
-
+	memberList = new ArrayList<>(Arrays.asList());
+	
 	public List<Members> getAllMemberList() {
 		return memberList;
 	}
 	public void addMembers(Members members) {
-			memberList.add(members);
-			
+		UUID id = UUID.randomUUID();
+		members.setId(id);
 		
+		memberList.add(members);
+	
 	}
+	public void deleteMembers(UUID id) {
+		
+		memberList.removeIf(m -> m.getId().equals(id));
+	}
+
 }
+
